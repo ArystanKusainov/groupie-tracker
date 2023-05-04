@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, , initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/static/artist.css">
+    <title>{{.Main.Name}}</title>
+  </head>
+  <body>
+    <a class="home" href="/">Groupie Tracker</a>
+    <div class="container">
+      <div class="main">
+          <div class="bio">
+            <h1>{{.Main.Name}}</h1>
+            <p>Created: </p><a>{{.Main.CreationDate}}</a>
+            <p>First album released:</p> <a>{{.Main.FirstAlbum}}</a>
+            <ul class="members">
+              <p>Members:</p>
+                {{range .Main.Members}}
+                <li class="member">{{.}}</li>
+                {{end}}
+            </ul>
+          </div>
+          <div class="logo">
+            <div class="image">
+              <img src="{{.Main.Image}}" alt="artist's image" width="80%">
+            </div>
+          </div>
+      </div>
+      <div class="Concerts">
+        <div class="tb">
+            <table class="tab">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Date of concert</th>
+                    </tr>
+                </thead>
+                {{range $key, $value := .Concerts}}
+                <tbody>
+                  <tr>
+                    <td>{{$key}}</td>
+                    <td>
+                        {{range $value}}
+                            <p class="date">{{.}}</p>
+                        {{end}}
+                    </td>
+                  </tr>
+                </tbody>
+                {{end}}
+            </table>
+        </div>           
+      </div>   
+    </div>
+    <footer>
+      <p>© Groupie Tracker, 2023. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

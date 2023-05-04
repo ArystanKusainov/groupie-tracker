@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <!-- Load icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Groupie tracker</title>
+  </head>
+  <body>
+    <a class="home" href="/">Groupie Tracker</a>
+    <div>
+      <form class="search" action="/search" method="GET">
+        <input type="text" name="text" placeholder="Search" list="data" autocomplete="on"  required/>
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      <datalist id="data">
+        {{ range .People}}
+        <option class="option" value={{.}}>{{.}} - member</option>
+        {{end}}
+        {{ range .Group}}
+          <option class="option" value={{.Name}}>{{.Name}} - artist/band</option>
+          <option class="option" value={{.FirstAlbum}}>{{.FirstAlbum}} - first-album</option>
+        {{end}}
+        {{range .Created}}
+        <option class="option" value={{.}}>{{.}} - creation-date</option>
+        {{end}}
+        {{range .Places}}
+            <option class="option" value={{.}}>{{.}} - location</option>
+        {{end}}
+      </datalist>
+    </div>
+    
+    <header>
+      
+        <form class="filters" action="/filters" method="GET">
+
+          <div class="search-container">
+            <div class="creation-input">
+              <p>Creation date:</p>
+              <div class="price-input1">
+                <div class="field">
+                  <input type="number" name ="creation-date" class="input-min" min="1922" max="2022" value="1947">
+                </div>
+                <div class="separator"> 
+                </div>
+                <div class="field">
+                  <input type="number" name ="creation-date" class="input-max" min="1922" max="2022" value="1997">
+                </div>
+              </div>
+              <div class="slider1">
+                <div class="progress1"></div>
+              </div>
+              <div class="range-input1">
+                <input type="range" class="range-min" min="1922" max="2022" value="1947" >
+                <input type="range" class="range-max" min="1922" max="2022" value="1997" >
+              </div>
+            </div>
+            <div class="album-input">
+              <p>Choose a first album date:</p>
+              <div class="price-input2">
+                <div class="field">
+                  <input type="number" name ="first-album" class="input-min" min="1922" max="2022" value="1947">
+                </div>
+                <div class="separator"> 
+                </div>
+                <div class="field">
+                  <input type="number" name ="first-album" class="input-max" min="1922" max="2022" value="1997">
+                </div>
+              </div>
+              <div class="slider2">
+                <div class="progress2"></div>
+              </div>
+              <div class="range-input2">
+                <input type="range" class="range-min" min="1922" max="2022" value="1947" >
+                <input type="range" class="range-max" min="1922" max="2022" value="1997" >
+              </div>
+            </div>
+            <div class="location-input">
+              <p for="location-select">Choose a location:</p>
+              <select name="location" id="location-select">
+                <option value="">Please choose an option</option>
+                {{range .Places}}
+                  <option class="option" value={{.}}>{{.}}</option>
+                {{end}}
+              </select>
+            </div>
+            <div class="members-input">
+              <p># of members:</p>
+              <input type="checkbox" id="1" name="members" value="1">
+              <label for="1"></label>
+              <input type="checkbox" id="2" name="members" value="2">
+              <label for="2"></label>
+              <input type="checkbox" id="3" name="members" value="3">
+              <label for="3"></label>
+              <input type="checkbox" id="4" name="members" value="4">
+              <label for="4"></label>
+              <input type="checkbox" id="5" name="members" value="5">
+              <label for="5"></label>
+              <input type="checkbox" id="6" name="members" value="6">
+              <label for="6"></label>
+              <input type="checkbox" id="7" name="members" value="7">
+              <label for="7"></label>
+              <input type="checkbox" id="8" name="members" value="8">
+              <label for="8"></label>
+            </div>
+          </div>
+          <p class="submit">
+            <input type="submit" class="button" value="Submit">
+          </p>
+        </form>
+          
+    </header>
+    <div class="container">
+      {{ range .Group}}
+            <div class = "artist">
+              <a href="http://localhost:4000/artist/{{.Id}}">
+                <img src={{.Image}} width="150px">
+                <a href="http://localhost:4000/artist/{{.Id}}">{{.Name}}</a>
+              </a>
+            </div>
+      {{end}}
+    </div>
+    <footer>
+      <p>© Groupie Tracker, 2023. All rights reserved.</p>
+    </footer>
+    <script src="/static/script.js"></script>
+  </body>
+</html>

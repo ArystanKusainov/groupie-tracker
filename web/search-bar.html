@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <title>Groupie tracker</title>
+</head>
+<body>
+    <a class="home" href="/">Groupie Tracker</a>
+    <div class="container">
+      
+      {{if .}}
+        {{ range .}}
+        <div class = "artist">
+          <a href="http://localhost:4000/artist/{{.Id}}">
+            <img src={{.Image}} width="150px">
+            <a href="http://localhost:4000/artist/{{.Id}}">{{.Name}}</a>
+          </a>
+        </div>
+        {{end}}
+      {{else}}
+        <h3>Sorry. We couldn't find anything that matched your search.<br>
+          Try again using a different spelling or keywords.</h3>
+      {{end}}
+    </div>
+
+</body>
+</html>
