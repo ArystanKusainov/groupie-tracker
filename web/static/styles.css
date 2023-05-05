@@ -83,7 +83,7 @@ header{
 .search-container > div{
   margin: 20px auto 10px auto;
   width: 20%;
-  /* background: #fff; */
+  background: #fff;
   color: #000;
   border-radius: 10px;
   padding: 5px;
