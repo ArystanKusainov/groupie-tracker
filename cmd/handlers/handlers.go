@@ -241,7 +241,7 @@ func Filters(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	if r.URL.Path != "/search/" {
+	if r.URL.Path != "/filters/" {
 		Errorhandler(w, http.StatusNotFound)
 		return
 	}

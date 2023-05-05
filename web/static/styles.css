@@ -8,7 +8,6 @@
         body {
             display: flex;
             flex-direction: column;
-            /* text-align: center; */
             align-items:center;
             justify-content: center;
             font-size: 1.5em;
@@ -23,7 +22,16 @@
           color: rgb(255, 255, 255);
           border-bottom: 5px solid #ffffff;
         }
-        form.search input {
+        .search {
+          width: 10%;
+          height: 70px;
+          min-height: 30px;
+          min-width: 200px;
+          margin: auto;
+          text-align: inherit;
+        }
+        /* Style the search field */
+        form.search-form input {
           margin: auto;
           float: left;
           padding: 5px;
@@ -38,7 +46,7 @@
         }
 
         /* Style the submit button */
-        form.search button {
+        form.search-form button {
           margin: auto;
           font-size: 0.8em;
           float: left;
@@ -52,190 +60,189 @@
           width: 20%;
           min-width: 40px;
         }
-        form.search input:hover {
+        form.search-form input:hover {
           border: 1.5px solid rgb(214, 13, 204);
         }
-        header{
-          margin: 1em auto 1em;
-          width: 40%;
-          height: width*0.25;
-          background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(214, 13, 204) 35%, rgb(224, 142, 231)100%);
-          border-radius: 15px;
-          padding: 10px;
-        }
 
-        .search-container {
-          margin: auto;
-          display: flex;
-          flex-wrap: wrap;
-          flex-direction: row;
-        }
+/* styles for filters-container */
 
-       .search-container > div{
-
-          margin: 20px auto 10px auto;
-          width: 20%;
-          background: #fff;
-          color: #000;
-          border-radius: 10px;
-          padding: 5px;
-          box-shadow: 0 12px 35px rgba(0,0,0,0.1);
-        }
-
-
-::selection{
-  color: #fff;
-  background: #17A2B8;
+header{
+  margin: 1em auto 1em;
+  width: 40%;
+  height: width*0.25;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(214, 13, 204) 35%, rgb(224, 142, 231)100%);
+  border-radius: 15px;
+  padding: 10px;
 }
-.creation-input{
+.search-container {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.search-container > div{
+  margin: 20px auto 10px auto;
   width: 20%;
-  height: 0.4*width;
   background: #fff;
   color: #000;
   border-radius: 10px;
   padding: 5px;
   box-shadow: 0 12px 35px rgba(0,0,0,0.1);
-  margin: 20px auto 10px auto;
 }
-
+::selection{
+color: #fff;
+background: #17A2B8;
+}
+.creation-input{
+width: 20%;
+height: 0.4*width;
+background: #fff;
+color: #000;
+border-radius: 10px;
+padding: 5px;
+box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+margin: 20px auto 10px auto;
+}
 p {
-  text-align: center;
+text-align: center;
 }
-input {
-  border-radius: 10px;
-}
+/* input {
+border-radius: 10px;
+} */
 .separator{
-  width: 20%;
+width: 20%;
 }
 .price-input1,.price-input2{
-  width: 90%;
-  display: flex;
-  margin: auto;
+width: 90%;
+display: flex;
+margin: auto;
 }
 .price-input1 .field,.price-input2 .field{
-  display: flex;
-  margin: 10px auto 10px auto;
-  width: 35%;
-  height: 0.3*width;
-  align-items: center;
+display: flex;
+margin: 10px auto 10px auto;
+width: 35%;
+height: 0.3*width;
+align-items: center;
 }
 .field input{
-  width: 80%;
-  height: 100%;
-  margin: auto;
-  outline: none;
-  font-size: 0.8em;
-  border-radius: 10px;
-  text-align: center;
-  border: 1px solid rgb(158, 157, 157);
-  -moz-appearance: textfield;
+width: 80%;
+height: 100%;
+margin: auto;
+outline: none;
+font-size: 0.8em;
+border-radius: 10px;
+text-align: center;
+border: 1px solid rgb(158, 157, 157);
+-moz-appearance: textfield;
 }
-
 input[type="number"]::-webkit-outer-spin-submit,
 input[type="number"]::-webkit-inner-spin-submit {
-  -webkit-appearance: none;
+-webkit-appearance: none;
 }
-
 .slider1,.slider2{
-  height: 5px;
-  margin: 5px;
-  position: relative;
-  background: #ddd;
-  border-radius: 5px;
-  
+height: 5px;
+margin: 5px;
+position: relative;
+background: #ddd;
+border-radius: 5px;
+
 }
 .slider1 .progress1, .slider2 .progress2{
-  height: 100%;
-  left: 25%;
-  right: 25%;
-  position: absolute;
-  border-radius: 5px;
-  background:  rgb(214, 13, 204);
+height: 100%;
+left: 25%;
+right: 25%;
+position: absolute;
+border-radius: 5px;
+background:  rgb(214, 13, 204);
 }
 .range-input1, .range-input2{
-  position: relative;
+position: relative;
 }
 .range-input1 input, .range-input2 input{
-  position: absolute;
-  width: 100%;
-  height: 5px;
-  top: -10px;
-  background: none;
-  pointer-events: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+position: absolute;
+width: 100%;
+height: 5px;
+top: -10px;
+background: none;
+pointer-events: none;
+-webkit-appearance: none;
+-moz-appearance: none;
 }
 input[type="range"]::-webkit-slider-thumb{
-  height: 17px;
-  width: 17px;
-  border-radius: 50%;
-  background:  rgb(214, 13, 204);
-  pointer-events: auto;
-  -webkit-appearance: none;
-  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+height: 17px;
+width: 17px;
+border-radius: 50%;
+background:  rgb(214, 13, 204);
+pointer-events: auto;
+-webkit-appearance: none;
+box-shadow: 0 0 6px rgba(0,0,0,0.05);
 }
 input[type="range"]::-moz-range-thumb{
-  height: 17px;
-  width: 17px;
-  border: none;
-  border-radius: 50%;
-  background: rgb(214, 13, 204);
-  pointer-events: auto;
-  -moz-appearance: none;
-  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+height: 17px;
+width: 17px;
+border: none;
+border-radius: 50%;
+background: rgb(214, 13, 204);
+pointer-events: auto;
+-moz-appearance: none;
+box-shadow: 0 0 6px rgba(0,0,0,0.05);
 }
-
-
 input[type='checkbox'] {
-  accent-color: green;
+accent-color: green;
+
+
+}
+.location-input, .members-input {
+  margin: auto;
+  text-align: center;
+}
+.location-input > select {
+  text-align: center;
+  width: auto;
+  max-width: 80%;
+}
+.members-input > input{
+  width: 8%;
+}
+.submit  {
+  text-align: center;
+}
+.button {
+  width: 80px;
+  font-family: 'Bebas Neue', cursive;
+  display: inline-block;
+  margin: 2px auto 2px auto;
+  padding: 5px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
   
-    
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  
 }
 
 
-        .location-input, .members-input {
-          margin: auto;
-          text-align: center;
-        }
-
-        .location-input > select {
-          text-align: center;
-          width: auto;
-          max-width: 80%;
-        }
-        .members-input > input{
-          width: 8%;
-        }
-        .submit  {
-          text-align: center;
-        }
-        .button {
-          width: 80px;
-          font-family: 'Bebas Neue', cursive;
-          display: inline-block;
-          margin: 2px auto 2px auto;
-          padding: 5px;
-          font-size: 24px;
-          cursor: pointer;
-          text-align: center;
-          text-decoration: none;
-          outline: none;
-          color: #fff;
-          background-color: #4CAF50;
-          border: none;
-          border-radius: 15px;
-          
-        }
-        
-        .button:hover {background-color: #3e8e41}
-        
-        .button:active {
-          background-color: #3e8e41;
-          
-        }
 
 
-        
+
+
+
+
+
+
+
+
 
 
         .container {
@@ -297,115 +304,14 @@ input[type='checkbox'] {
 
         @media screen and (max-width: 1280px) {
           body {
-            font-size: 10px;
-           
+            font-size: 14px;
           }
           h1 {
             color: rgb(255, 255, 255);
             margin: 0.5em auto 0.5em;
           }
-          .home {
-            border-bottom: 2px solid #ffffff;
-          }
-          header {
-            width: 80%;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-          }
-          form {
-            background-color: #fff;
-            margin: 0;
-            border-radius: 10px;
-          }
-          .search-container {
-            display: flex;
-            flex-direction: column;
-            background-color: #fff;
-            border-radius: 10px;
-            align-items: center;
-            
-          }
-          .search-container > div, .album-input
- {
-            width: 80%;
-            height: 0.25*width;
-            margin: 2px;
-          }
-          .price-input1, .price-input2{
-            display: flex;
-            justify-content: center;
-            width: 80%;
-            height: 0.2*width;
-            margin: auto;
-          }
-          .price-input1 > .field,  .price-input2 > .field{
-            margin: 0 2px 0 2px;
-            width: 20%;
-            height: 0.2*width;
-            align-items: center;
-          }
-          .field > input{
-            width: 80%;
-            height: 0.2*width;
-            margin: auto;
-            outline: none;
-            font-size: 0.8em;
-            border-radius: 5px;
-            text-align: center;
-            border: 1px solid rgb(158, 157, 157);
-            -moz-appearance: textfield;
-          }
-          .separator{
-            width: 80%;
-          }
-          input,p,.button,select {
-            font-size: 8px;
-          }
-
-
-          .slider1, .slider2{
-            height: 2px;
-            margin: 5px;
-            position: relative;
-            background: #ddd;
-            border-radius: 5px;
-            
-          }
-
-
-          .range-input1 input, .range-input2 input{
-            width: 100%;
-            height: 5px;
-            top: -8px;
-
-          }
-          input[type="range"]::-webkit-slider-thumb{
-            height: 7px;
-            width: 7px;
-            border-radius: 50%;
-            background:  rgb(214, 13, 204);
-            pointer-events: auto;
-            -webkit-appearance: none;
-            box-shadow: 0 0 6px rgba(0,0,0,0.05);
-          }
-          input[type="range"]::-moz-range-thumb{
-            height: 7px;
-            width: 7px;
-            border: none;
-            border-radius: 50%;
-            background: rgb(214, 13, 204);
-            pointer-events: auto;
-            -moz-appearance: none;
-            box-shadow: 0 0 6px rgba(0,0,0,0.05);
-          }
-          .button {
-            width: 40px;
-            margin: 3px;
-          }
-          
           .container {
-            width: 80%;
+            width: 90%;
           }
           .artist{
             width: 80px;
