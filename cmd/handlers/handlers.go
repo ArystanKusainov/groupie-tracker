@@ -62,13 +62,14 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		var array []string
 		for _, vv := range v {
 			vv2 := strings.ReplaceAll(vv.String(), "_", " ")
+			vv2 = strings.ReplaceAll(vv2, "-", ", ")
+			array = append(array, vv2)
 			vv2 = strings.Title(vv2)
-			replacer := strings.NewReplacer("-", ", ", "Uk", "UK", "Usa", "USA")
+			replacer := strings.NewReplacer("Uk", "UK", "Usa", "USA")
 			res_vv := replacer.Replace(vv2)
 
 			new_locations = append(new_locations, res_vv)
 
-			array = append(array, res_vv)
 		}
 		arr_cities = append(arr_cities, array)
 
@@ -183,13 +184,13 @@ func Search(w http.ResponseWriter, r *http.Request) {
 		flag := false
 
 		date, _ := strconv.Atoi(txt)
-		if strings.Contains(strings.ToLower(v.Name), txt) || v.FirstAlbum == txt || v.CreationDate == date {
+		if (strings.Contains(strings.ToLower(v.Name), txt) || v.FirstAlbum == txt || v.CreationDate == date) && len(output) < 51 {
 			output = append(output, v)
 			members = append(members, strings.ToLower(v.Name))
 			flag = true
 		}
 		for _, vv := range v.Members {
-			if strings.Contains(strings.ToLower(vv), txt) && !Contains(members, txt) && flag == false {
+			if strings.Contains(strings.ToLower(vv), txt) && !Contains(members, txt) && flag == false && len(output) < 51 {
 				output = append(output, v)
 				break
 			}
@@ -197,9 +198,10 @@ func Search(w http.ResponseWriter, r *http.Request) {
 
 	}
 	// search place
+
 	for i, v := range arr_cities {
 		for _, vv := range v {
-			if strings.Contains(vv, txt) {
+			if strings.Contains(vv, txt) && len(output) < 51 {
 				output = append(output, res.Group[i])
 				break
 			}
@@ -219,6 +221,7 @@ func Search(w http.ResponseWriter, r *http.Request) {
 		Errorhandler(w, http.StatusInternalServerError)
 		return
 	}
+	arr_cities = [][]string{}
 }
 
 func Filters(w http.ResponseWriter, r *http.Request) {
@@ -302,7 +305,7 @@ func Filters(w http.ResponseWriter, r *http.Request) {
 			for i, z := range arr_cities {
 				if i == v.Id-1 {
 					for _, zz := range z {
-						if zz == location[0] {
+						if zz == strings.ToLower(location[0]) {
 							for _, vv := range nm {
 								if len(v.Members) == vv {
 									result = append(result, v)
@@ -319,7 +322,7 @@ func Filters(w http.ResponseWriter, r *http.Request) {
 			for i, z := range arr_cities {
 				if i == v.Id-1 {
 					for _, zz := range z {
-						if zz == location[0] {
+						if zz == strings.ToLower(location[0]) {
 							result = append(result, v)
 						}
 					}
