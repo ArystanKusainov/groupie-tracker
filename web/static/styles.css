@@ -83,7 +83,7 @@ header{
 .search-container > div{
   margin: 20px auto 10px auto;
   width: 20%;
-  background: #fff;
+  /* background: #fff; */
   color: #000;
   border-radius: 10px;
   padding: 5px;
@@ -302,14 +302,116 @@ accent-color: green;
           height: 2.5rem;            /* Footer height */
         }
 
+
         @media screen and (max-width: 1280px) {
           body {
-            font-size: 14px;
+            font-size: 10px;
+           
           }
           h1 {
             color: rgb(255, 255, 255);
             margin: 0.5em auto 0.5em;
           }
+          .home {
+            border-bottom: 2px solid #ffffff;
+          }
+          .search {
+            height: 4em;
+            /* width: 20%; */
+            /* margin: 5px; */
+          }
+          header {
+            width: 85%;
+            margin: 0;
+            padding: 0;
+            /* background-color: #fff; */
+          }
+          .filters {
+            background-color: #fff;
+            margin: 0;
+            border-radius: 10px;
+          }
+          .search-container {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 10px;
+            align-items: center;
+            
+          }
+          .search-container > div, .album-input
+ {
+            width: 80%;
+            height: 0.25*width;
+            margin: 2px;
+          }
+          .price-input1, .price-input2{
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            height: 0.2*width;
+            margin: auto;
+          }
+          .price-input1 > .field,  .price-input2 > .field{
+            margin: 0 2px 0 2px;
+            width: 20%;
+            height: 0.2*width;
+            align-items: center;
+          }
+          .field > input{
+            width: 80%;
+            height: 0.2*width;
+            margin: auto;
+            outline: none;
+            font-size: 0.8em;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid rgb(158, 157, 157);
+            -moz-appearance: textfield;
+          }
+          .separator{
+            width: 80%;
+          }
+          input,p,.button,select {
+            font-size: 8px;
+          }
+          .slider1, .slider2{
+            height: 2px;
+            margin: 5px;
+            position: relative;
+            background: #ddd;
+            border-radius: 5px;
+            
+          }
+          .range-input1 input, .range-input2 input{
+            width: 100%;
+            height: 5px;
+            top: -8px;
+          }
+          input[type="range"]::-webkit-slider-thumb{
+            height: 7px;
+            width: 7px;
+            border-radius: 50%;
+            background:  rgb(214, 13, 204);
+            pointer-events: auto;
+            -webkit-appearance: none;
+            box-shadow: 0 0 6px rgba(0,0,0,0.05);
+          }
+          input[type="range"]::-moz-range-thumb{
+            height: 7px;
+            width: 7px;
+            border: none;
+            border-radius: 50%;
+            background: rgb(214, 13, 204);
+            pointer-events: auto;
+            -moz-appearance: none;
+            box-shadow: 0 0 6px rgba(0,0,0,0.05);
+          }
+          .button {
+            width: 40px;
+            margin: 3px;
+          }
+          
           .container {
             width: 90%;
           }
@@ -330,7 +432,6 @@ accent-color: green;
           a {
             font-size: 0.7em;
           }
-
         }
 
 
